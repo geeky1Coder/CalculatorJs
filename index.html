@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+    <title>IPD Summer Project Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto+Mono:ital,wght@1,700&display=swap" rel="stylesheet">
+     <script type="text/javascript" src="Scripts/script.js"></script>
+</head>
+<body>
+   
+    <div class="container">
+    <div class="outputPanel">
+        <div class="upper-panel"></div>
+        <div class="lower-panel"></div>
+    </div><br>
+    <button onClick="operation('/')">/</button>
+    <button onClick="operation('CE')">CE</button>
+    <button onClick="operation('C')">C</button>
+    <button onClick="operation('<')">&#60</button><br>
+    <input type="button" value="1" onClick="insert(1)">
+    <input type="button" value="2" onClick="insert(2)">
+    <input type="button" value="3" onClick="insert(3)">
+    <button onClick="operation('-')">-</button><br>
+    <input type="button" value="4" onClick="insert(4)">
+    <input type="button" value="5" onClick="insert(5)"> 
+    <input type="button" value="6" onClick="insert(6)">
+    <button onClick="operation('+')">+</button><br>
+    <input type="button" value="7" onClick="insert(7)">
+    <input type="button" value="8" onClick="insert(8)">
+    <input type="button" value="9" onClick="insert(9)">
+    <button onClick="operation('*')">*</button><br>
+    <input type="button" value="." onClick="insert('.')">
+    <input type="button" value="0" onClick="insert(0)">
+    <button id="equals" onclick="operation('=')">=</button>
+
+   </div>
+    
+
+</body>
+</html>
