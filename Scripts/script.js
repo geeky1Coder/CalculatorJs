@@ -1,6 +1,7 @@
 var firstExp=0;
 var operationCall=false;
 var equalsCall=false;
+var preOperator;
 function insert(num){
     var s=document.querySelector(".lower-panel");
       if(operationCall==true){
@@ -17,6 +18,7 @@ function insert(num){
     s.innerHTML+=num;
 }
 function operation(operator){
+       
         var exp=0;
         exp=document.querySelector(".lower-panel").textContent;
         exp=Number(exp);
@@ -32,6 +34,7 @@ function operation(operator){
         document.querySelector(".lower-panel").textContent=Number(exp)+Number(firstExp);
         firstExp+=exp;
         operationCall=true;
+        preOperator=operator;
     }
 
      else if (operator=="-"){
@@ -51,6 +54,7 @@ function operation(operator){
         else
           firstExp+=exp;
           operationCall=true;
+          preOperator=operator;
       }
      
        else if(operator=="CE"){
@@ -82,12 +86,14 @@ function operation(operator){
         }
       
         operationCall=true;
+        preOperator=operator;
          }
 
         else if(operator=="<"){
             var s=document.querySelector(".lower-panel").textContent;
              s=s.slice(0,s.length-1);
             document.querySelector(".lower-panel").textContent=s;
+
         }
 
         else if(operator=="/"){
@@ -114,34 +120,30 @@ function operation(operator){
             }
           
           }
-          
+            preOperator=operator;
             operationCall=true;
         }
 
         else if(operator=="="){
           var s=document.querySelector(".upper-panel").textContent;
-          for(var i=s.length-2;i>=0;--i){
-            var o=s.charAt(i);
-            if(isNaN(o)){
-              break;
-            }
-          }
-          
-          if(o=="+"){
+          if(preOperator=="+"){
             var result=firstExp+Number(document.querySelector(".lower-panel").textContent);
           }
-          else if(o=="*"){
+          else if(preOperator=="*"){
             var result=firstExp*Number(document.querySelector(".lower-panel").textContent);
           }
-          else if(o=="-"){
+          else if(preOperator=="-"){
             var result=firstExp-Number(document.querySelector(".lower-panel").textContent);
           }
-          else if(o=="/"){
+          else if(preOperator=="/"){
             var result=firstExp/Number(document.querySelector(".lower-panel").textContent);
           }
-          
-          document.querySelector(".upper-panel").textContent+=o+document.querySelector(".lower-panel").textContent+"=";
+        
+          document.querySelector(".upper-panel").textContent+=preOperator+document.querySelector(".lower-panel").textContent+"=";
           document.querySelector(".lower-panel").textContent=result;
+        
           equalsCall=true;
         }
+        
+        console.log(preOperator);
  }
