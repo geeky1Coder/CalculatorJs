@@ -7,7 +7,6 @@ function insert(num){
       if(operationCall==true){
         s.innerHTML="";
         operationCall=false;
-
    }
    if(equalsCall==true){
      s.innerHTML="";
@@ -23,6 +22,16 @@ function operation(operator){
         exp=document.querySelector(".lower-panel").textContent;
         exp=Number(exp);
          if(operator=="+"){
+           var flag=0;
+           if(equalsCall==true){
+             var s=document.querySelector(".lower-panel");
+             firstExp=Number(s.textContent);
+             document.querySelector(".upper-panel").textContent="";
+             document.querySelector(".upper-panel").textContent=s.textContent;
+             flag=1;
+             equalsCall=false;
+           }
+           else{
           if( document.querySelector(".upper-panel").textContent=="")
           {
            document.querySelector(".upper-panel").textContent+=exp;
@@ -31,28 +40,43 @@ function operation(operator){
           {
            document.querySelector(".upper-panel").textContent+="+"+exp;
           }
+        
         document.querySelector(".lower-panel").textContent=Number(exp)+Number(firstExp);
-        firstExp+=exp;
+           }
+        if(flag==0){
+          firstExp+=exp;
+        }
         operationCall=true;
         preOperator=operator;
     }
 
      else if (operator=="-"){
-       if( document.querySelector(".upper-panel").textContent=="")
-       {
-        document.querySelector(".upper-panel").textContent+=exp;
-       }
-       else
-       {
-        document.querySelector(".upper-panel").textContent+="-"+exp;
-       }
-        
-        document.querySelector(".lower-panel").textContent=Number(firstExp)-Number(exp);
-        if(firstExp!=0){
-            firstExp-=exp;
+      if(equalsCall==true){
+        var s=document.querySelector(".lower-panel");
+        firstExp=Number(s.textContent);
+        document.querySelector(".upper-panel").textContent="";
+        document.querySelector(".upper-panel").textContent=s.textContent;
+        flag=1;
+        equalsCall=false;
+      }
+      else{
+        if( document.querySelector(".upper-panel").textContent=="")
+        {
+         document.querySelector(".upper-panel").textContent+=exp;
         }
         else
-          firstExp+=exp;
+        {
+         document.querySelector(".upper-panel").textContent+="-"+exp;
+        }
+         
+         document.querySelector(".lower-panel").textContent=Number(firstExp)-Number(exp);
+         if(firstExp!=0){
+             firstExp-=exp;
+         }
+         else
+           firstExp+=exp;
+      }
+      
           operationCall=true;
           preOperator=operator;
       }
@@ -68,24 +92,35 @@ function operation(operator){
         fiirstExp=0;
        }
         else if (operator=="*"){
-          if( document.querySelector(".upper-panel").textContent=="")
-          {
-           document.querySelector(".upper-panel").textContent+=exp;
+          if(equalsCall==true){
+            var s=document.querySelector(".lower-panel");
+            firstExp=Number(s.textContent);
+            document.querySelector(".upper-panel").textContent="";
+            document.querySelector(".upper-panel").textContent=s.textContent;
+            flag=1;
+            equalsCall=false;
           }
-          else
-          {
-           document.querySelector(".upper-panel").textContent+="*"+exp;
+          else{
+            if( document.querySelector(".upper-panel").textContent=="")
+            {
+             document.querySelector(".upper-panel").textContent+=exp;
+            }
+            else
+            {
+             document.querySelector(".upper-panel").textContent+="*"+exp;
+            }
+             
+            if(firstExp!=0){
+              document.querySelector(".lower-panel").textContent=Number(firstExp)*Number(exp);
+              firstExp*=exp;
+            }
+          else{
+            document.querySelector(".lower-panel").textContent=Number(exp);
+            firstExp+=exp;
           }
-           
-          if(firstExp!=0){
-            document.querySelector(".lower-panel").textContent=Number(firstExp)*Number(exp);
-            firstExp*=exp;
+        
           }
-        else{
-          document.querySelector(".lower-panel").textContent=Number(exp);
-          firstExp+=exp;
-        }
-      
+          
         operationCall=true;
         preOperator=operator;
          }
@@ -98,7 +133,16 @@ function operation(operator){
         }
 
         else if(operator=="/"){
-          if( document.querySelector(".upper-panel").textContent=="")
+          if(equalsCall==true){
+            var s=document.querySelector(".lower-panel");
+            firstExp=Number(s.textContent);
+            document.querySelector(".upper-panel").textContent="";
+            document.querySelector(".upper-panel").textContent=s.textContent;
+            flag=1;
+            equalsCall=false;
+          }
+          else{
+            if( document.querySelector(".upper-panel").textContent=="")
           {
            document.querySelector(".upper-panel").textContent+=exp;
           }
@@ -121,6 +165,8 @@ function operation(operator){
             }
           
           }
+          }
+          
             preOperator=operator;
             operationCall=true;
         }
