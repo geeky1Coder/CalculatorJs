@@ -65,6 +65,7 @@ function operation(operator){
        else if(operator=="C"){
         document.querySelector(".lower-panel").textContent="";
         document.querySelector(".upper-panel").textContent="";
+        fiirstExp=0;
        }
         else if (operator=="*"){
           if( document.querySelector(".upper-panel").textContent=="")
