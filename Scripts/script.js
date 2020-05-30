@@ -99,13 +99,14 @@ function operation(operator){
      
        else if(operator=="CE"){
         document.querySelector(".lower-panel").textContent="";
-        firstExp=0;
        }
 
        else if(operator=="C"){
         document.querySelector(".lower-panel").textContent="";
         document.querySelector(".upper-panel").textContent="";
-        fiirstExp=0;
+        firstExp=0;
+        oper_num=0;
+        e_flag=0;
        }
         else if (operator=="*"){
           if(equalsCall==true){
