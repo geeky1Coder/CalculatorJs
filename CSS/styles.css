@@ -12,53 +12,106 @@
     margin-top: 150px;
     position: relative;
   }
-  input{
-      color: white;
-      border: 0px;
-      font-size: 2em;
-      background-color: rgb(102, 0, 204);
-      display: inline-block;
-      width: 100px;
-      height: 50px;
-      margin-top: 5px;
-      text-align: center;
-      font-family: 'Roboto Mono', monospace;
-      font-weight: bold;
-     
-  }
+
 
   input:hover ,button:hover{
       background-color:black ;
       box-shadow: 1px 1px 4px black;
   }
 
-  button{
-    color: white;
-    border: 0px;
-    font-size: 2em;
-    background-color: rgb(33, 0, 51);
-    display: inline-block;
-    width: 100px;
-    height: 50px;
-    margin-top: 5px;
-    text-align: center;
-    font-family: 'Roboto Mono', monospace;
-    font-weight: bold;
+  @media screen and (min-width:767px ){
+    button{
+        color: white;
+        border: 0px;
+        font-size: 2em;
+        background-color: rgb(33, 0, 51);
+        display: inline-block;
+        width:100px;
+        height: 50px;
+        margin-top: 5px;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+      }
+
+      input{
+        color: white;
+        border: 0px;
+        font-size: 2em;
+        background-color: rgb(102, 0, 204);
+        display: inline-block;
+        width:100px;
+        height: 50px;
+        margin-top: 5px;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+       
+    }
+
+    #equals{
+        background-color:rgb(33, 0, 51) ;
+          width:204px;
+    }
+
+    .outputPanel{
+        background-color: #11001a;
+         width: 412px;
+        text-align: center;
+        display: inline-block;
+        margin-bottom: -4px;
+        cursor: text;
+    }
+  }
+  @media screen and (max-width:767px){
+    button{
+        color: white;
+        border: 0px;
+        font-size: 2em;
+        background-color: rgb(33, 0, 51);
+        display: inline-block;
+        width:50px;
+        
+         
+        height: 50px;
+        margin-top: 5px;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+      }
+      input{
+        color: white;
+        border: 0px;
+        font-size: 2em;
+        background-color: rgb(102, 0, 204);
+        display: inline-block;
+        width:50px;
+        height: 50px;
+        margin-top: 5px;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+       
+    }
+
+    #equals{
+        background-color:rgb(33, 0, 51) ;
+          width:102px;
+    }
+
+    .outputPanel{
+        background-color: #11001a;
+        width: 205px;
+        text-align: center;
+        display: inline-block;
+        margin-bottom: -4px;
+        cursor: text;
+    }
   }
 
-  #equals{
-      background-color:rgb(33, 0, 51) ;
-      width: 204px;
-  }
 
-  .outputPanel{
-      background-color: #11001a;
-      width: 412px;
-      text-align: center;
-      display: inline-block;
-      margin-bottom: -4px;
-      cursor: text;
-  }
+
+ 
   .upper-panel{
       height: 40px;
       color:white;
