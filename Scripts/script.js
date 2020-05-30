@@ -207,8 +207,8 @@ function operation(operator){
                   }
                   var o=u.textContent.charAt(n);
                   oper=o;
-                  s=Number(s);
                   s=reverseNum(s);
+                  s=Number(s);
                   oper_num=s;
                   // firstExp=s;
                   u.textContent="";
