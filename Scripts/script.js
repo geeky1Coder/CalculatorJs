@@ -15,6 +15,8 @@ function insert(num){
      s.innerHTML="";
      document.querySelector(".upper-panel").innerHTML="";
      firstExp=0;
+     oper_num=0;
+     e_flag=0;
      equalsCall=false;
    }
     s.innerHTML+=num;
@@ -200,11 +202,12 @@ function operation(operator){
                   var n=u.textContent.length-2;
                   var s="";
               
-                  while(isNaN(u.textContent.charAt(n))==false)
+                  while(isNaN(u.textContent.charAt(n))==false||u.textContent.charAt(n)=='.')
                   { 
                     s+=(u.textContent).charAt(n);
                     --n;
                   }
+                  console.log(s);
                   var o=u.textContent.charAt(n);
                   oper=o;
                   s=reverseNum(s);
@@ -214,8 +217,6 @@ function operation(operator){
                   u.textContent="";
                   e_flag=1;
                 }
-                console.log(oper_num);
-                console.log(oper);
                 var str;
                 str=document.querySelector(".lower-panel").textContent;
                 firstExp=Number(str);
@@ -233,16 +234,14 @@ function operation(operator){
                 else if(oper=="*"){
                  
                   document.querySelector(".upper-panel").textContent=firstExp+"*"+oper_num+"=";
-                  firstExp-=Number(oper_num);
+                  firstExp*=Number(oper_num);
                 }
                 else if(oper=="/"){
                  
-                  document.querySelector(".upper-panel").textContent=firstExp+"*"+oper_num+"=";
-                  firstExp-=Number(oper_num);
+                  document.querySelector(".upper-panel").textContent=firstExp+"/"+oper_num+"=";
+                  firstExp/=Number(oper_num);
                 }
                 document.querySelector(".lower-panel").textContent=firstExp;
-                  // u.textContent=l.textContent+"+"+s;
-                  // firstExp+=Number(l.textContent);
              }
              else{
               if(preOperator=="+"){
